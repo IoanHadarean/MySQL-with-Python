@@ -18,9 +18,11 @@ try:
         # rows = [('jim', 21, "1997-03-4 23:45:23"),
         #         ('fred', 21, "1997-03-4 23:45:23"),
         #         ('bob', 21, "1997-03-4 23:45:23")]
-        list_of_names = ['fred', 'Fred']
+        list_of_names = ['fred', 'Fred', 'bob', 'jim']
         # Prepare a string with the same number of placeholders as in list_of_names
         format_strings = ','.join(['%s']*len(list_of_names))
+        # print(format_strings)
+        # print(['%s']*len(list_of_names))
         cursor.execute("DELETE FROM Friends WHERE name in ({});".format(format_strings), list_of_names)
         connection.commit();
 finally:
